@@ -1,10 +1,20 @@
 import { battle, event, person, timeline } from "../../types.ts";
-import parseYaml from "../../yaml.ts";
+import * as YAML from "https://deno.land/std@0.139.0/encoding/yaml.ts";
 
-const timelines = parseYaml("../../data/timeline.yaml") as timeline[];
-const battles = parseYaml("../../data/battles.yaml") as battle[];
-const people = parseYaml("../../data/people.yaml") as person[];
-const events = parseYaml("../../data/events.yaml") as event[];
+const file = await Deno.readTextFile("./src/data/battles.yaml");
+
+const timelines = YAML.parse(
+  await Deno.readTextFile("./src../data/timeline.yaml"),
+) as timeline[];
+const battles = YAML.parse(
+  await Deno.readTextFile("./.src/../data/battles.yaml"),
+) as battle[];
+const people = YAML.parse(
+  await Deno.readTextFile("./src/../data/people.yaml"),
+) as person[];
+const events = YAML.parse(
+  await Deno.readTextFile("./src/../data/events.yaml"),
+) as event[];
 const headers = { "Content-Type": "application/json" };
 
 timelines.forEach((timeline) => {
@@ -22,6 +32,6 @@ timelines.forEach((timeline) => {
   }
 });
 
-export default async () => {
+export default () => {
   return new Response(JSON.stringify(timelines), { headers });
 };
