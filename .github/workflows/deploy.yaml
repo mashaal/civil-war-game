@@ -22,11 +22,11 @@ jobs:
           deno-version: 1.21.3
 
       - name: Build site
-        run: root=https://mashaal-civil-war.deno.dev deno run -A https://deno.land/x/ultra@v1.0.1/build.ts
+        run: root=https://mashaal-civil-war-game.deno.dev deno run -A https://deno.land/x/ultra@v1.0.1/build.ts
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
-          project: mashaal-civil-war
+          project: mashaal-civil-war-game
           entrypoint: ULTRA.js
           root: .ultra
