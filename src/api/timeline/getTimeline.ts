@@ -1,10 +1,10 @@
 import { battle, event, person, timeline } from "../../types.ts";
 import parseYaml from "../../yaml.ts";
 
-const timelines = parseYaml("./../../data/timeline.yaml") as timeline[];
-const battles = parseYaml("./../../data/battles.yaml") as battle[];
-const people = parseYaml("./../../data/people.yaml") as person[];
-const events = parseYaml("./../../data/events.yaml") as event[];
+const timelines = parseYaml("../../data/timeline.yaml") as timeline[];
+const battles = parseYaml("../../data/battles.yaml") as battle[];
+const people = parseYaml("../../data/people.yaml") as person[];
+const events = parseYaml("../../data/events.yaml") as event[];
 const headers = { "Content-Type": "application/json" };
 
 timelines.forEach((timeline) => {
