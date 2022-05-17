@@ -1,19 +1,17 @@
 import { battle, event, person, timeline } from "../../types.ts";
 import * as YAML from "https://deno.land/std@0.139.0/encoding/yaml.ts";
 
-const file = await Deno.readTextFile("./src/data/battles.yaml");
-
 const timelines = YAML.parse(
-  await Deno.readTextFile("./src../data/timeline.yaml"),
+  await Deno.readTextFile("./src/data/timeline.yaml"),
 ) as timeline[];
 const battles = YAML.parse(
-  await Deno.readTextFile("./.src/../data/battles.yaml"),
+  await Deno.readTextFile("./src/data/battles.yaml"),
 ) as battle[];
 const people = YAML.parse(
-  await Deno.readTextFile("./src/../data/people.yaml"),
+  await Deno.readTextFile("./src/data/people.yaml"),
 ) as person[];
 const events = YAML.parse(
-  await Deno.readTextFile("./src/../data/events.yaml"),
+  await Deno.readTextFile("./src/data/events.yaml"),
 ) as event[];
 const headers = { "Content-Type": "application/json" };
 
